@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hava Durumu</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="resimler/logo.png" alt="Hava Durumu Logo" class="logo">
+            <h1> Hava Durumu</h1>
+        </div>
+
+        <div id="currentLocationWeather" class="weather-card location-weather-card">
+            <h2>Cihaz Konumu Hava Durumu</h2>
+            <div id="currentLocationInfo" class="current-location-info">
+                <p>Konum bilgisi bekleniyor...</p>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <select class="search-select" id="citySelect">
+                <option value="">Şehir Seçin</option>
+                <option value="Adana">Adana</option>
+                <option value="Adıyaman">Adıyaman</option>
+                <option value="Afyonkarahisar">Afyonkarahisar</option>
+                <option value="Ağrı">Ağrı</option>
+                <option value="Amasya">Amasya</option>
+                <option value="Ankara">Ankara</option>
+                <option value="Antalya">Antalya</option>
+                <option value="Artvin">Artvin</option>
+                <option value="Aydın">Aydın</option>
+                <option value="Balıkesir">Balıkesir</option>
+                <option value="Bilecik">Bilecik</bilecik>
+                <option value="Bingöl">Bingöl</bingöl>
+                <option value="Bitlis">Bitlis</bitlis>
+                <option value="Bolu">Bolu</option>
+                <option value="Burdur">Burdur</burdur>
+                <option value="Bursa">Bursa</option>
+                <option value="Çanakkale">Çanakkale</çanakkale>
+                <option value="Çankırı">Çankırı</çankırı>
+                <option value="Çorum">Çorum</option>
+                <option value="Denizli">Denizli</denizli>
+                <option value="Diyarbakır">Diyarbakır</diyarbakır>
+                <option value="Edirne">Edirne</edirne>
+                <option value="Elazığ">Elazığ</elazığ>
+                <option value="Erzincan">Erzincan</erzincan>
+                <option value="Erzurum">Erzurum</erzurum>
+                <option value="Eskişehir">Eskişehir</eskişehir>
+                <option value="Gaziantep">Gaziantep</gaziantep>
+                <option value="Giresun">Giresun</giresun>
+                <option value="Gümüşhane">Gümüşhane</gümüşhane>
+                <option value="Hakkari">Hakkari</hakkari>
+                <option value="Hatay">Hatay</hatay>
+                <option value="Isparta">Isparta</option>
+                <option value="Mersin">Mersin</mersin>
+                <option value="İstanbul">İstanbul</istanbul>
+                <option value="İzmir">İzmir</izmir>
+                <option value="Kars">Kars</option>
+                <option value="Kastamonu">Kastamonu</kastamonu>
+                <option value="Kayseri">Kayseri</kayseri>
+                <option value="Kırklareli">Kırklareli</kırklareli>
+                <option value="Kırşehir">Kırşehir</kırşehir>
+                <option value="Kocaeli">Kocaeli</kocaeli>
+                <option value="Konya">Konya</konya>
+                <option value="Kütahya">Kütahya</kütahya>
+                <option value="Malatya">Malatya</malatya>
+                <option value="Manisa">Manisa</manisa>
+                <option value="Kahramanmaraş">Kahramanmaraş</kahramanmaraş>
+                <option value="Mardin">Mardin</mardin>
+                <option value="Muğla">Muğla</muğla>
+                <option value="Muş">Muş</muş>
+                <option value="Nevşehir">Nevşehir</nevşehir>
+                <option value="Niğde">Niğde</niğde>
+                <option value="Ordu">Ordu</option>
+                <option value="Rize">Rize</rize>
+                <option value="Sakarya">Sakarya</sakarya>
+                <option value="Samsun">Samsun</samsun>
+                <option value="Siirt">Siirt</siirt>
+                <option value="Sinop">Sinop</sinop>
+                <option value="Sivas">Sivas</sivas>
+                <option value="Tekirdağ">Tekirdağ</tekirdağ>
+                <option value="Tokat">Tokat</tokat>
+                <option value="Trabzon">Trabzon</trabzon>
+                <option value="Tunceli">Tunceli</tunceli>
+                <option value="Şanlıurfa">Şanlıurfa</şanlıurfa>
+                <option value="Uşak">Uşak</option>
+                <option value="Van">Van</van>
+                <option value="Yozgat">Yozgat</yozgat>
+                <option value="Zonguldak">Zonguldak</zonguldak>
+                <option value="Aksaray">Aksaray</aksaray>
+                <option value="Bayburt">Bayburt</bayburt>
+                <option value="Karaman">Karaman</karaman>
+                <option value="Kırıkkale">Kırıkkale</kirikkale>
+                <option value="Batman">Batman</batman>
+                <option value="Şırnak">Şırnak</şırnak>
+                <option value="Bartın">Bartın</bartın>
+                <option value="Ardahan">Ardahan</ardahan>
+                <option value="Iğdır">Iğdır</ığdır>
+                <option value="Yalova">Yalova</yalova>
+                <option value="Karabük">Karabük</karabuk>
+                <option value="Kilis">Kilis</kilis>
+                <option value="Osmaniye">Osmaniye</osmaniye>
+                <option value="Düzce">Düzce</düzce>
+            </select>
+
+            <button class="search-btn" id="confirmCityBtn">Şehri Onayla</button>
+
+            </div>
+
+        <div id="weatherCard" class="weather-card">
+            <div class="weather-main">
+                <div class="weather-icon" id="weatherIcon"></div>
+                <div class="weather-temp" id="temperature"></div>
+            </div>
+
+            <div class="weather-info">
+                <div class="city-name" id="cityName"></div>
+                <div class="weather-desc" id="weatherDesc"></div>
+            </div>
+
+            <div class="weather-details">
+                <div class="detail-item"><strong>Hissedilen:</strong> <span id="feelsLike"></span></div>
+                <div class="detail-item"><strong>Nem:</strong> <span id="humidity"></span></div>
+                <div class="detail-item"><strong>Rüzgar:</strong> <span id="windSpeed"></span></div>
+                <div class="detail-item"><strong>Basınç:</strong> <span id="pressure"></span></div>
+                <div class="detail-item"><strong>Görüş:</strong> <span id="visibility"></span></div>
+                <div class="detail-item"><strong>UV:</strong> <span id="uvIndex"></span></div>
+            </div>
+        </div>
+
+        <div class="sun-info-container">
+            <div class="sun-info">
+                <img src="resimler/güneş.png" alt="Güneş Doğuşu İkonu" class="sun-icon">
+                <strong>Doğuş:</strong> <span id="sunrise"></span>
+            </div>
+            <div class="sun-info">
+                <img src="resimler/ay.png" alt="Güneş Batışı İkonu" class="sun-icon">
+                <strong>Batış:</strong> <span id="sunset"></span>
+            </div>
+        </div>
+
+        <div id="mapSection" class="map-section" style="display: none;">
+            <h2>Şehir Konumu</h2>
+            <div id="weatherMap" style="height: 350px;"></div>
+        </div>
+
+        <div id="errorMessage" class="error" style="display: none;"></div>
+        <div id="loadingMessage" class="loading" style="display: none;">Veriler yükleniyor...</div>
+    </div>
+
+    <script src="jskodları.js"></script>
+</body>
+</html>
